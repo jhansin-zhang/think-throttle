@@ -168,7 +168,7 @@ class Throttle
         if ($key === true) {
             $key = $request->ip();
         } elseif (false !== strpos($key, '__')) {
-            $controller= $request->request()['s'];
+            $controller= $request->url();
             $controller = str_replace('/','_',$controller);
             $authKey = isset($request->header()['auth-key']) ? $request->header()['auth-key'] : $request->ip();
             $key = $controller.'_'.$authKey;
